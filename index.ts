@@ -35,15 +35,6 @@ export default {
     const _callback = (res) => {
       callback(res);
     };
-    const listenerCount = screenGuardEmitter.listenerCount(
-      ScreenGuardConstants.EVENT_NAME
-    );
-    if (!listenerCount) {
-      screenGuardEmitter.addListener(
-        ScreenGuardConstants.EVENT_NAME,
-        _callback
-      );
-    }
   },
 
   /**
@@ -72,15 +63,6 @@ export default {
     const _callback = (res) => {
       callback(res);
     };
-    const listenerCount = screenGuardEmitter.listenerCount(
-      ScreenGuardConstants.EVENT_NAME
-    );
-    if (!listenerCount) {
-      screenGuardEmitter.addListener(
-        ScreenGuardConstants.EVENT_NAME,
-        _callback
-      );
-    }
   },
 
   /**
@@ -106,9 +88,5 @@ export default {
   unregister() {
     // screenGuardEmitter.removeListener(EVENT_NAME);
     ScreenGuard.deactivateShield();
-    if (screenGuardEmitter != null) {
-      screenGuardEmitter.removeAllListeners(ScreenGuardConstants.EVENT_NAME);
-      screenGuardEmitter = null;
-    }
   },
 };

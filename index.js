@@ -26,15 +26,6 @@ export default {
     const _callback = (res) => {
       callback(res);
     };
-    const listenerCount = screenGuardEmitter.listenerCount(
-      ScreenGuardConstants.EVENT_NAME
-    );
-    if (!listenerCount) {
-      screenGuardEmitter.addListener(
-        ScreenGuardConstants.EVENT_NAME,
-        _callback
-      );
-    }
   },
   /**
    * Activate screenshot blocking with a blur effect after captured (iOS 13+, Android 6+)
@@ -61,15 +52,6 @@ export default {
     const _callback = (res) => {
       callback(res);
     };
-    const listenerCount = screenGuardEmitter.listenerCount(
-      ScreenGuardConstants.EVENT_NAME
-    );
-    if (!listenerCount) {
-      screenGuardEmitter.addListener(
-        ScreenGuardConstants.EVENT_NAME,
-        _callback
-      );
-    }
   },
   /**
    * activate with an Image uri (iOS 13+, Android 8+)
@@ -90,9 +72,5 @@ export default {
   unregister() {
     // screenGuardEmitter.removeListener(EVENT_NAME);
     ScreenGuard.deactivateShield();
-    if (screenGuardEmitter != null) {
-      screenGuardEmitter.removeAllListeners(ScreenGuardConstants.EVENT_NAME);
-      screenGuardEmitter = null;
-    }
   },
 };
